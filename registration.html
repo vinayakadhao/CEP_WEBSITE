@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration Page</title>
+</head>
+<body>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(to right, #155799, #159957);
+      color: whitesmoke;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      width: 35rem;
+      margin: auto;
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      background-color: rgba(11, 15, 13, 0.582);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.125);
+      padding: 20px 25px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      margin: 10px 0;
+      border-radius: 5px;
+      padding: 15px 18px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #030804;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 5px;
+      margin: 7px 0;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    button:hover {
+      opacity: 0.6;
+      cursor: pointer;
+    }
+
+    .headingsContainer {
+      text-align: center;
+    }
+
+    .headingsContainer p {
+      color: gray;
+    }
+
+    .mainContainer {
+      padding: 16px;
+    }
+
+    .login {
+      color: white;
+      text-align: center;
+    }
+
+    .login a {
+      color: rgb(74, 146, 235);
+    }
+
+    .login a:link {
+      text-decoration: none;
+    }
+
+    @media screen and (max-width: 600px) {
+      form {
+        width: 25rem;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      form {
+        width: 20rem;
+      }
+    }
+  </style>
+  
+
+  <h1>Registration Form</h1>
+  <form action="http://localhost:3000/register" method="POST">
+    <div class="headingsContainer">
+      <h3>Register</h3>
+      <p>Fill in the form to create an account</p>
+    </div>
+
+    <div class="mainContainer">
+      <label for="fullname">Full Name</label>
+      <input type="text" placeholder="Enter Full Name" name="fullname" required />
+
+      <label for="email">Email</label>
+      <input type="email" placeholder="Enter Email" name="email" required />
+
+      <label for="username">Username</label>
+      <input type="text" placeholder="Choose a Username" name="username" required />
+
+      <label for="pswrd">Password</label>
+      <!-- ✅ Fix this line in your form -->
+<input type="password" placeholder="Create Password" name="pswrd" required />
+
+      <label for="confirm_pswrd">Confirm Password</label>
+      <input type="password" placeholder="Confirm Password" name="confirm_pswrd" required />
+
+      <button type="submit" >Register</button>
+
+      <p class="login">Already a member? <a href="Loginpage.html">Login here!</a></p>
+    </div>
+  </form>
+</body>
+</html>

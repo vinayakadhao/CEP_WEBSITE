@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forgot Password</title>
+</head>
+<body>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(to right, #155799, #159957);
+      color: whitesmoke;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      width: 35rem;
+      margin: auto;
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      background-color: rgba(11, 15, 13, 0.582);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.125);
+      padding: 20px 25px;
+    }
+
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      margin: 10px 0;
+      border-radius: 5px;
+      padding: 15px 18px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #030804;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 5px;
+      margin: 7px 0;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    button:hover {
+      opacity: 0.6;
+      cursor: pointer;
+    }
+
+    #result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: yellow;
+    }
+
+    @media screen and (max-width: 600px) {
+      form {
+        width: 25rem;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      form {
+        width: 20rem;
+      }
+    }
+  </style>
+
+  <h1>Forgot Password</h1>
+  <form onsubmit="getPassword(event)">
+    <label for="name">Full Name</label>
+    <input type="text" name="name" placeholder="Enter your full name" required />
+
+    <label for="username">Username</label>
+    <input type="text" name="username" placeholder="Enter your username" required />
+
+    <label for="email">Email</label>
+    <input type="email" name="email" placeholder="Enter your email" required />
+
+    <button type="submit">Get Password</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function getPassword(event) {
+      event.preventDefault();
+
+      const name = event.target.name.value.trim();
+      const username = event.target.username.value.trim();
+      const email = event.target.email.value.trim();
+
+      // Example data (in real case, you'd use a backend call)
+      const users = [
+        {
+          name: "John Doe",
+          username: "john123",
+          email: "john@example.com",
+          password: "john@123"
+        },
+        {
+          name: "Alice Smith",
+          username: "alice456",
+          email: "alice@example.com",
+          password: "alice@456"
+        }
+      ];
+
+      const user = users.find(
+        u => u.name === name && u.username === username && u.email === email
+      );
+
+      const resultDiv = document.getElementById("result");
+
+      if (user) {
+        resultDiv.innerHTML = `Your password is: <strong>${user.password}</strong>`;
+      } else {
+        resultDiv.innerHTML = `<span style="color: red;">User not found. Please check your details.</span>`;
+      }
+    }
+  </script>
+</body>
+</html>
